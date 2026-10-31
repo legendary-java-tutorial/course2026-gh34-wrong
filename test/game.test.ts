@@ -16,11 +16,12 @@ test("тексты игры: docs/game.json правильный, режимы �
   assert.equal(game.recordsTitle.replace("{mode}", "quick"), "Топ-5 режима quick (попытки)");
   assert.equal(game.recordsEmpty, "Пока рекордов нет.");
   assert.equal(game.recordLine.replace("{position}", "1").replace("{attempts}", "3").replace("{date}", "сегодня"), "1. 3 — сегодня");
-  assert.deepEqual(names, ["quick", "classic", "лёгкий", "трудный"]);
+  assert.deepEqual(names, ["quick", "classic", "лёгкий", "трудный", "хардкор"]);
   assert.deepEqual([game.modes.quick.min, game.modes.quick.max], [1, 10]);
   assert.deepEqual([game.modes.classic.min, game.modes.classic.max], [1, 100]);
   assert.deepEqual([game.modes["лёгкий"].min, game.modes["лёгкий"].max], [1, 50]);
   assert.deepEqual([game.modes["трудный"].min, game.modes["трудный"].max], [1, 500]);
+  assert.deepEqual([game.modes["хардкор"].min, game.modes["хардкор"].max], [1, 1000]);
   if (names.length > 1) {
     for (const name of names) assert.ok(game.greeting.includes(name), `в приветствии нет режима "${name}"`);
   }
