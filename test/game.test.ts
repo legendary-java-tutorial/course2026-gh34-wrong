@@ -74,3 +74,9 @@ test("логика игры: ответы на догадку и загадан�
   assert.equal(parseGuess(""), null);
   assert.equal(parseGuess("2.5"), null);
 });
+
+test("тема: названа в README", () => {
+  const game = parseGame(readFileSync(new URL("../docs/game.json", import.meta.url), "utf8"));
+  const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  assert.ok(readme.includes(game.theme), `в README нет темы "${game.theme}"`);
+});
