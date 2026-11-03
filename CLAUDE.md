@@ -6,3 +6,5 @@
 - Сообщения коммитов — по Conventional Commits: `feat: …` — новая функция, `fix: …` — исправление; что сделано — по-русски.
 - `git commit --amend` — только до push; после push — новый коммит.
 - Коммить в текущую ветку; новую ветку — только по просьбе.
+- `git push --force` — никогда; после rebase своей ветки PR — только `git push --force-with-lease`.
+- `main` и чужие ветки не переписывать (rebase, reset, amend) — только новый коммит или `git revert`.
